@@ -3,6 +3,7 @@ package com.notification.notification
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import androidx.annotation.NonNull
 import androidx.core.app.NotificationManagerCompat
 
@@ -16,6 +17,7 @@ import io.flutter.plugin.common.MethodChannel.Result
 
 /** NotificationPlugin */
 class NotificationPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
+    private var TAG = "NotificationPlugin"
     private lateinit var channel: MethodChannel
     private var notificationStatus = "NotificationsStatus"
     private var notificationSettings = "NotificationsSettings"
@@ -31,6 +33,7 @@ class NotificationPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         if (call.method == notificationStatus) {
             var notification = NotificationManagerCompat.from(activity)
             var isEnabled = notification.areNotificationsEnabled()
+            Log.i(TAG,"isEnabled:$isEnabled")
             result.success(isEnabled)
         } else if (call.method == notificationSettings) {
             try {
