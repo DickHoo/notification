@@ -17,7 +17,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+#  notification: # notice
+#    git:
+#      url: https://github.com/DickHoo/notification.git
   notification:
     # When depending on this package from a real application you should use:
     #   notification: ^x.y.z

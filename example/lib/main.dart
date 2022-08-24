@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:notification/notification.dart';
@@ -55,7 +54,7 @@ class _MyAppState extends State<MyApp> {
               ),
               TextButton(
                 onPressed: () {
-                  NotificationChannel.oppenNotificationSettings;
+                  NotificationChannel.openNotificationSettings;
                 },
                 child: const Text("打开通知"),
               ),

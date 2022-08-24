@@ -9,15 +9,16 @@ class NotificationChannel {
   static const MethodNotificationStatus = "NotificationsStatus";
   static const MethodNotificationSettings = "NotificationsSettings";
 
-
   static Future<bool?> get getNotificationStatus async {
-    final bool? status = await _channel.invokeMethod(MethodNotificationStatus);
+     var status = await _channel.invokeMethod(MethodNotificationStatus);
+     if(status is String){
+       status = (status == "1")?true:false;
+     }
     print("$TAG :status:$status");
     return status;
   }
 
-  static Future<bool?> get oppenNotificationSettings async {
-    final bool? status = await _channel.invokeMethod(MethodNotificationSettings);
-    return status;
+  static get openNotificationSettings async {
+     _channel.invokeMethod(MethodNotificationSettings);
   }
 }
